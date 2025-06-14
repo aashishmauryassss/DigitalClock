@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("https://www.pixelstalk.net/wp-content/uploads/images2/Division-time-zones-standard-time-clocks-1920x1080.jpg") no-repeat center/cover;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.clock {
+  padding: 50px 70px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px #00ffe5, 0 0 40px #00ffe56b inset;
+  animation: floatBox 4s ease-in-out infinite alternate;
+  text-align: center;
+  color: #00ffe5;
+  margin-bottom: 50px;
+}
+
+@keyframes floatBox {
+  0% {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px #00ffe5, 0 0 40px #00ffe5 inset;
+  }
+  100% {
+    transform: translateY(10px);
+    box-shadow: 0 0 25px #00ffe5, 0 0 60px #00ffe5 inset;
+  }
+}
+
+.time {
+  font-size: 5rem;
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px #00ffe5, 0 0 30px #00ffe5;
+  margin-bottom: 10px;
+  font-family: 'Major Mono Display', monospace;
+}
+
+
+.time-part, .name {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.time-part {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.time-part:hover {
+  transform: scale(1.2);
+  color: #ff0;
+  text-shadow: 0 0 10px #ff0, 0 0 20px #ff0;
+}
+
+.colon {
+  padding: 0 10px;
+}
+
+.ampm {
+  font-size: 1.5rem;
+  margin-left: 10px;
+  vertical-align: super;
+  color: #00ffe5cc;
+  text-shadow: 0 0 5px #00ffe5aa;
+}
+
+.name {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Audiowide', cursive;
+  color: #00ffd8cc;
+  text-shadow: 0 0 5px #00ffe5aa;
+  user-select: none;
+  gap: 5px;
+  text-align: center;
+}
+
+.name::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, #00ffe5 20%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.name:hover {
+  color: #00fff0;
+  text-shadow: 0 0 5px #00fff0, 0 0 20px #00fff0, 0 0 40px #00fff0;
+}
+
+.name:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.4;
+}
+
+.gallery {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wallpaper {
+  width: 200px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+  z-index: 1;
+  filter: blur(4px);
+  opacity: 0.6;
+  transform: scale(1);
+}
+
+.gallery .wallpaper:hover {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.gallery:not(:hover) .wallpaper {
+  filter: blur(4px);
+  opacity: 0.6;
+  transform: scale(1);
+}
+
+/* Inline CSS to use Candara font */
+    .time {
+      font-family: 'Candara', sans-serif;
+      font-size: 5rem;
+      letter-spacing: 4px;
+      text-shadow: 0 0 15px #00ffe5, 0 0 30px #00ffe5;
+      margin-bottom: 10px;
+    }
+
+    .name {
+      font-family: 'Audiowide', cursive;
+      font-size: 1.5rem;
+      color: #00ffd5;
+      text-shadow: 0 0 5px #00ffd5;
+    }
